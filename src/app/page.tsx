@@ -99,11 +99,7 @@ const projects = [
             {
                 name: "Python",
                 icon: <FaPython className="size-5 text-[#3776AB]" />,
-            },
-            {
-                name: "Pandas",
-                icon: <FaPython className="size-5 text-[#3776AB]" />,
-            },
+            }
         ],
     },
     {

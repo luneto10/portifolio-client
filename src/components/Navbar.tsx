@@ -31,42 +31,38 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur border-b border-border">
-            <div className="flex items-center justify-between px-8 py-4 h-20">
-                <div className="flex items-center gap-8">
-                    <a
-                        href="#about"
-                        onClick={(e) => handleScroll(e, "#about")}
-                        className="font-bold text-2xl tracking-tight"
-                    >
-                        Portfolio
-                    </a>
-                    <div className="hidden md:flex gap-2 items-center">
-                        {navItems.map((item, i) => (
-                            <React.Fragment key={item.href}>
-                                <Button
-                                    asChild
-                                    variant="ghost"
-                                    size="sm"
-                                    className="px-4 font-medium text-base"
+            <div className="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 h-20">
+                <a
+                    href="#about"
+                    onClick={(e) => handleScroll(e, "#about")}
+                    className="font-bold text-2xl tracking-tight"
+                >
+                    Portfolio
+                </a>
+                <div className="hidden md:flex gap-4 items-center">
+                    {navItems.map((item, i) => (
+                        <React.Fragment key={item.href}>
+                            <Button
+                                asChild
+                                variant="ghost"
+                                size="sm"
+                                className="px-4 font-medium text-lg"
+                            >
+                                <a
+                                    href={item.href}
+                                    onClick={(e) => handleScroll(e, item.href)}
                                 >
-                                    <a
-                                        href={item.href}
-                                        onClick={(e) =>
-                                            handleScroll(e, item.href)
-                                        }
-                                    >
-                                        {item.label}
-                                    </a>
-                                </Button>
-                                {i < navItems.length - 1 && (
-                                    <Separator
-                                        orientation="vertical"
-                                        className="h-6"
-                                    />
-                                )}
-                            </React.Fragment>
-                        ))}
-                    </div>
+                                    {item.label}
+                                </a>
+                            </Button>
+                            {i < navItems.length - 1 && (
+                                <Separator
+                                    orientation="vertical"
+                                    className="h-6"
+                                />
+                            )}
+                        </React.Fragment>
+                    ))}
                 </div>
                 <div className="md:hidden">
                     <Sheet open={open} onOpenChange={setOpen}>

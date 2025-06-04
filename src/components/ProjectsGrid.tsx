@@ -17,28 +17,30 @@ export default function ProjectsGrid({
             {projects.map((project) => (
                 <Card
                     key={project.name}
-                    className="transition-shadow hover:shadow-lg bg-background/80"
+                    className="group relative transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] bg-background/80"
                 >
-                    <CardContent className="flex flex-col gap-2 py-4">
-                        <div className="font-semibold flex items-center gap-1">
-                            {project.name}
-                            <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener"
-                                className="ml-1 text-neutral-400 hover:text-primary transition-colors"
-                            >
-                                <ArrowUpRight className="size-4" />
-                            </a>
+                    <CardContent className="flex flex-col justify-between h-full pt-2 pb-2">
+                        <div className="flex flex-col gap-2">
+                            <div className="font-semibold flex items-center gap-1">
+                                {project.name}
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener"
+                                    className="ml-1 text-neutral-400 group-hover:text-primary transition-colors"
+                                >
+                                    <ArrowUpRight className="size-4" />
+                                </a>
+                            </div>
+                            <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                                {project.description}
+                            </div>
                         </div>
-                        <div className="text-sm text-neutral-600 dark:text-neutral-400">
-                            {project.description}
-                        </div>
-                        <div className="flex flex-wrap gap-2 mt-2">
+                        <div className="flex flex-wrap gap-2 mt-4">
                             {project.technologies.map((tech) => (
                                 <div
                                     key={tech.name}
-                                    className="flex items-center gap-1 text-xs text-neutral-600 dark:text-neutral-400"
+                                    className="flex items-center gap-1 h-10 w-10 text-neutral-600 dark:text-neutral-400"
                                     title={tech.name}
                                 >
                                     {tech.icon}
